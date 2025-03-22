@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cube Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+        .container {
+            margin-top: 50px;
+            padding: 20px;
+            background: white;
+            display: inline-block;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+    <link rel="stylesheet" href="cube.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Cube Test</h2>
+        <div id="setup">
+            <label>Start Number: <input type="number" id="startNum"></label><br>
+            <label>End Number: <input type="number" id="endNum"></label><br>
+            <label>Shuffle Questions? 
+                <select id="shuffle">
+                    <option value="no">No (In Sequence)</option>
+                    <option value="yes">Yes (Random)</option>
+                </select>
+            </label><br>
+            <button onclick="startTest()">Start Test</button>
+        </div>
+
+        <div id="testArea" class="hidden">
+            <h3 id="question"></h3>
+            <input type="number" id="answer" placeholder="Enter answer">
+            <button onclick="checkAnswer()">Submit</button>
+            <p id="feedback"></p>
+        </div>
+    </div>
+
+    <script>
+        let numbers = [], currentIndex = 0;
+
+        function startTest() {
+            let start = parseInt(document.getElementById("startNum").value);
+            let end = parseInt(document.getElementById("endNum").value);
+            let shuffle = document.getElementById("shuffle").value === "yes";
+
+            if (isNaN(start) || isNaN(end) || start > end) {
+                alert("Please enter valid start and end numbers!");
+                return;
+            }
+
+            numbers = [];
+            for (let i = start; i <= end; i++) {
+                numbers.push(i);
+            }
+            
+            if (shuffle) {
+                numbers.sort(() => Math.random() - 0.5); // Shuffle array
+            }
+
+            currentIndex = 0;
+            document.getElementById("setup").classList.add("hidden");
+            document.getElementById("testArea").classList.remove("hidden");
+            showQuestion();
+        }
+
+        function showQuestion() {
+            if (currentIndex >= numbers.length) {
+                document.getElementById("testArea").innerHTML = "<h3>Test Completed! 🎉</h3>";
+                return;
+            }
+            let num = numbers[currentIndex];
+            document.getElementById("question").textContent = `What is ${num}³ ?`;
+            document.getElementById("answer").value = "";
+            document.getElementById("feedback").textContent = "";
+        }
+
+        function checkAnswer() {
+            let num = numbers[currentIndex];
+            let correctAnswer = num * num * num;
+            let userAnswer = parseInt(document.getElementById("answer").value);
+
+            if (userAnswer === correctAnswer) {
+                currentIndex++;
+                showQuestion();
+            } else {
+                document.getElementById("feedback").textContent = "Wrong! Try again.";
+            }
+        }
+
+        // Event listener for Enter key
+        document.getElementById("answer").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault(); // Prevents form submission (if inside a form)
+                checkAnswer();
+            }
+        });
+    </script>
+</body>
+</html>

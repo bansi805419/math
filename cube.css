@@ -1,0 +1,113 @@
+/* General Page Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background: linear-gradient(135deg, #8E2DE2, #4A00E0);
+    margin: 0;
+    padding: 0;
+}
+
+/* Main Container */
+.container {
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.container:hover {
+    transform: scale(1.05);
+}
+
+/* Heading Styles */
+h2 {
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Labels */
+label {
+    display: block;
+    margin: 10px 0;
+    font-size: 18px;
+    color: #555;
+}
+
+/* Input Fields */
+input, select, button {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+input {
+    background: #f1f1f1;
+    text-align: center;
+}
+
+/* Button Styling */
+button {
+    background: #ff6b6b;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background: #ff4f4f;
+    transform: translateY(-2px);
+}
+
+/* Hidden Class (Used for Dynamic Content) */
+.hidden {
+    display: none;
+}
+
+/* Test Area */
+#testArea {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Question Styling */
+#question {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Answer Input */
+#answer {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Feedback Message */
+#feedback {
+    font-size: 18px;
+    font-weight: bold;
+    color: #e63946;
+    margin-top: 10px;
+}

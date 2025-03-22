@@ -1,0 +1,128 @@
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background: linear-gradient(135deg, #8E2DE2, #4A00E0);
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+.container {
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+}
+
+h2 {
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Newly added styles for the missing div */
+#testArea {
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    transition: all 0.3s ease-in-out;
+}
+
+#testArea h3 {
+    color: #333;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+label {
+    display: block;
+    margin: 10px 0;
+    font-size: 18px;
+    color: #555;
+}
+
+input, select, button {
+    width: 80%;
+    padding: 12px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+input {
+    background: #f1f1f1;
+}
+
+input:focus {
+    background: #e0e0e0;
+    border: 2px solid #ff7675;
+    box-shadow: 0 0 10px rgba(255, 118, 117, 0.5);
+}
+
+button {
+    background: #ff7675;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background: #e74c3c;
+    transform: translateY(-3px);
+}
+
+#feedback {
+    font-size: 18px;
+    font-weight: bold;
+    color: #d63031;
+    margin-top: 10px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile-friendly adjustments */
+@media (max-width: 500px) {
+    .container, #testArea {
+        max-width: 90%;
+        padding: 15px;
+    }
+    
+    h2, #testArea h3 {
+        font-size: 20px;
+    }
+    
+    input, button {
+        width: 90%;
+    }
+}

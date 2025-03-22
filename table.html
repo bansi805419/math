@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table Test</title>
+    <link rel="stylesheet" href="table.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+        .container {
+            margin-top: 50px;
+            padding: 20px;
+            background: white;
+            display: inline-block;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Multiplication Table Test</h2>
+        <div id="setup">
+            <label>Enter a Number: <input type="number" id="tableNum"></label><br>
+            <button onclick="startTest()">Start Test</button>
+        </div>
+
+        <div id="testArea" class="hidden">
+            <h3 id="question"></h3>
+            <input type="number" id="answer" placeholder="Enter answer">
+            <button onclick="checkAnswer()">Submit</button>
+            <p id="feedback"></p>
+        </div>
+    </div>
+
+    <script>
+        let tableNum, currentMultiplier = 1;
+
+        function startTest() {
+            tableNum = parseInt(document.getElementById("tableNum").value);
+
+            if (isNaN(tableNum) || tableNum <= 0) {
+                alert("Please enter a valid positive number!");
+                return;
+            }
+
+            currentMultiplier = 1;
+            document.getElementById("setup").classList.add("hidden");
+            document.getElementById("testArea").classList.remove("hidden");
+            showQuestion();
+        }
+
+        function showQuestion() {
+            if (currentMultiplier > 10) {
+                document.getElementById("testArea").innerHTML = "<h3>Test Completed! 🎉</h3>";
+                return;
+            }
+            document.getElementById("question").textContent = `What is ${tableNum} × ${currentMultiplier}?`;
+            document.getElementById("answer").value = "";
+            document.getElementById("feedback").textContent = "";
+        }
+
+        function checkAnswer() {
+            let correctAnswer = tableNum * currentMultiplier;
+            let userAnswer = parseInt(document.getElementById("answer").value);
+
+            if (userAnswer === correctAnswer) {
+                currentMultiplier++;
+                showQuestion();
+            } else {
+                document.getElementById("feedback").textContent = "Wrong! Try again.";
+            }
+        }
+
+        // Event listener for Enter key
+        document.getElementById("answer").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                checkAnswer();
+            }
+        });
+    </script>
+</body>
+</html>

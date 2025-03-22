@@ -1,0 +1,72 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+}
+
+/* Container */
+.container {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 500px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Heading */
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Card Container */
+.card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Individual Cards */
+.card {
+    background: white;
+    color: black;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+    text-align: center;
+}
+
+/* Different Card Colors */
+.square { background: #ff4e50; color: white; }
+.table { background: #fc913a; color: white; }
+.cube { background: #ffce54; color: black; }
+.cube-root { background: #4ecdc4; color: black; }
+.square-root { background: #556270; color: white; }
+
+/* Hover Effects */
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+    .container {
+        width: 95%;
+    }
+}
